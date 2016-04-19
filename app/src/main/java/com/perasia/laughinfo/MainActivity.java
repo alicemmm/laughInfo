@@ -1,6 +1,7 @@
 package com.perasia.laughinfo;
 
 import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.widget.SwipeRefreshLayout;
 import android.support.v7.app.AppCompatActivity;
@@ -14,6 +15,7 @@ import android.webkit.WebView;
 import com.perasia.laughinfo.adapter.RecycleViewAdapter;
 import com.perasia.laughinfo.data.DataInfo;
 import com.perasia.laughinfo.database.SQLiteUtil;
+import com.perasia.laughinfo.recycleview.MyRecycleViewActivity;
 
 import java.util.ArrayList;
 import java.util.Random;
@@ -50,6 +52,8 @@ public class MainActivity extends AppCompatActivity {
         init();
 
         initView();
+
+        startActivity(new Intent(mContext, MyRecycleViewActivity.class));
     }
 
     private void init() {
