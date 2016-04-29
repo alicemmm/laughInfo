@@ -15,8 +15,11 @@ import android.webkit.WebView;
 import com.perasia.laughinfo.adapter.RecycleViewAdapter;
 import com.perasia.laughinfo.data.DataInfo;
 import com.perasia.laughinfo.database.SQLiteUtil;
-import com.perasia.laughinfo.recycleview.MyRecycleViewActivity;
+import com.perasia.laughinfo.zhujie.SayHiAnnotation;
+import com.perasia.laughinfo.zhujie.SayHiElement;
 
+import java.lang.reflect.InvocationTargetException;
+import java.lang.reflect.Method;
 import java.util.ArrayList;
 import java.util.Random;
 
@@ -53,7 +56,7 @@ public class MainActivity extends AppCompatActivity {
 
         initView();
 
-        startActivity(new Intent(mContext, MyRecycleViewActivity.class));
+        startActivity(new Intent(mContext, DownloadActivity.class));
     }
 
     private void init() {
@@ -66,6 +69,34 @@ public class MainActivity extends AppCompatActivity {
         SQLiteUtil.createSQLite();
 
         SQLiteUtil.insertTwo();
+
+
+        zhujie();
+    }
+
+    private void zhujie() {
+
+        try {
+            SayHiElement element = new SayHiElement();
+            Method[] methods = SayHiElement.class.getDeclaredMethods();
+
+            for (Method method : methods) {
+                SayHiAnnotation annotationTmp = null;
+                if ((annotationTmp = method.getAnnotation(SayHiAnnotation.class)) != null) {
+                    method.invoke(element, annotationTmp.paramValue());
+                } else {
+                    method.invoke(element, "Rose");
+                }
+            }
+        } catch (IllegalAccessException e) {
+
+        } catch (IllegalArgumentException e) {
+
+        } catch (InvocationTargetException e) {
+
+        }
+
+
     }
 
     private void initView() {
@@ -160,6 +191,7 @@ public class MainActivity extends AppCompatActivity {
 
 
         reqData(mReqType, mInitPage);
+
     }
 
     private void reqData(int reqType, int page) {

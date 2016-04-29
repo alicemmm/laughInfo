@@ -27,6 +27,10 @@
 
         <activity android:name=".fragment.FragmentMainActivity" />
 
+        <activity android:name=".DownloadActivity" />
+
+        <service android:name=".service.CoreService"/>
+
     </application>
 
 </manifest>
