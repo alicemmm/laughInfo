@@ -14,6 +14,7 @@ public class DownloadActivity extends Activity {
 
     MyDownloadManager downloadManager;
 
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

@@ -192,6 +192,10 @@ public class MainActivity extends AppCompatActivity {
 
         reqData(mReqType, mInitPage);
 
+
+        String welcome = getString(R.string.welcome, "小丸子","电影");
+        Log.e(TAG,"welcome="+welcome);
+
     }
 
     private void reqData(int reqType, int page) {

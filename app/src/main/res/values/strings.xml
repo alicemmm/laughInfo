@@ -8,4 +8,6 @@
     <string name="download_loading">下载中...</string>
 
     <string name="accessibility">accessibilityDemo</string>
+
+    <string name="welcome">你好%1$s,欢迎使用我们的app,使我们的logo</string>
 </resources>
